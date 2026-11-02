@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b13">
+  <meta name="description" content="Micro Menace Command Centre — an interactive, browser-based developer playground.">
+  <title>Micro Menace // Command Centre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="header">
+      <div class="logo"><span class="logo-icon">⌘</span><div><small>PERSONAL DEV LAB // 3080</small><h1>MICRO <span>MENACE</span></h1></div></div>
+      <div class="header-actions">
+        <span class="status"><i></i> SYSTEM ONLINE</span>
+        <button id="theme-btn" class="ghost" type="button" title="Switch colour theme">◉ Change theme</button>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">THE DIGITAL PLAYGROUND / BUILD 001</span>
+        <h2>Welcome to<br><em>menace mode.</em></h2>
+        <p>Your tiny machine. Your enormous ideas. Experiment, create and learn from one ridiculously over-engineered dashboard.</p>
+        <div class="chips"><span>⚡ NO FRAMEWORKS</span><span>🔒 LOCAL STORAGE</span><span>🛠 REAL INTERACTIONS</span></div>
+      </div>
+      <div class="hero-dial" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="core">M<span>3080</span></div></div>
+    </section>
+    <section class="metrics" aria-label="Dashboard metrics">
+      <div class="metric"><small>LOCAL TIME</small><strong id="clock">--:--:--</strong><span id="today">Loading date...</span></div>
+      <div class="metric"><small>OPEN MISSIONS</small><strong id="task-count">0</strong><span>tasks still to tackle</span></div>
+      <div class="metric"><small>FOCUS MODE</small><strong id="focus-label">25:00</strong><span>minutes of menace</span></div>
+      <div class="metric"><small>STATUS</small><strong>READY<span class="blink">_</span></strong><span>no excuses detected</span></div>
+    </section>
+    <main class="workspace">
+      <section class="panel terminal-panel" aria-labelledby="terminal-heading">
+        <div class="panel-head"><h3 id="terminal-heading">▸ COMMAND TERMINAL</h3><span>SIMULATION ONLY</span></div>
+        <div id="terminal-output" class="terminal-output" role="log" aria-live="polite"><p>MICRO MENACE OS v1.0 — learning simulation</p><p>Type <b>help</b> to see available commands.</p></div>
+        <form id="terminal-form" class="terminal-input"><label for="terminal-command">guest@micro-menace:~$</label><input id="terminal-command" autocomplete="off" spellcheck="false" aria-label="Simulated terminal command" placeholder="type help..." maxlength="120"><button type="submit">RUN ↵</button></form>
+      </section>
+      <section class="panel" aria-labelledby="missions-heading">
+        <div class="panel-head"><h3 id="missions-heading">✓ MISSION QUEUE</h3><span>LOCAL SAVE</span></div>
+        <form id="task-form" class="inline-form"><input id="task-input" placeholder="Add a mission..." aria-label="New mission" maxlength="90" required><button type="submit">+ ADD</button></form>
+        <ul id="task-list" class="tasks" aria-label="Mission queue"></ul>
+        <p id="tasks-empty" class="muted">Nothing queued. Suspiciously productive.</p>
+      </section>
+      <section class="panel focus-panel" aria-labelledby="focus-heading">
+        <div class="panel-head"><h3 id="focus-heading">◷ FOCUS REACTOR</h3><span>25 MIN SPRINT</span></div>
+        <div class="focus-clock" id="timer">25:00</div>
+        <p class="muted center">Put the distractions in a digital bin.</p>
+        <div class="button-row"><button id="timer-start" type="button">START</button><button id="timer-pause" type="button" class="secondary">PAUSE</button><button id="timer-reset" type="button" class="secondary">RESET</button></div>
+      </section>
+      <section class="panel mission-panel" aria-labelledby="idea-heading">
+        <div class="panel-head"><h3 id="idea-heading">✦ RANDOM SIDE QUEST</h3><span>CREATIVE ENGINE</span></div>
+        <div class="idea-symbol">✳</div>
+        <p id="quest" class="quest">Press the button. Your next bizarre project awaits.</p>
+        <button id="quest-btn" type="button">GENERATE MISSION ↗</button>
+      </section>
+      <section class="panel code-panel" aria-labelledby="code-heading">
+        <div class="panel-head"><h3 id="code-heading">⌘ JS EXPERIMENT CHAMBER</h3><span>ISOLATED IFRAME</span></div>
+        <p class="muted">Write JavaScript below. Results appear in the output box. This runs inside a sandboxed iframe, not your computer's terminal.</p>
+        <textarea id="code-input" spellcheck="false" aria-label="JavaScript experiment">console.log("⚡ Hello from the Micro Menace lab!");
+console.log("2 + 2 =", 2 + 2);</textarea>
+        <div class="button-row"><button id="run-code" type="button">▶ RUN EXPERIMENT</button><button id="clear-code" type="button" class="secondary">CLEAR OUTPUT</button></div>
+        <pre id="code-output" class="code-output" aria-live="polite">Experiment output will appear here.</pre>
+        <iframe id="sandbox" sandbox="allow-scripts" title="Isolated experiment environment" hidden></iframe>
+      </section>
+    </main>
+    <footer>BUILT TO LEARN. DESIGNED TO CAUSE CREATIVE TROUBLE. <span>MICRO MENACE © <span id="year"></span></span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

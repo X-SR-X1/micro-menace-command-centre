@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#090b13;--surface:#121523;--surface2:#181b2e;--text:#f5f3ff;--muted:#a0a5bc;--accent:#ad83ff;--accent2:#59e3ce;--border:rgba(186,174,233,.17);--shadow:rgba(128,75,250,.12);color-scheme:dark}
+:root[data-theme="green"]{--accent:#83f9b5;--accent2:#8fc9ff;--shadow:rgba(75,250,154,.1)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;line-height:1.5}
+.bg-grid{position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(122,99,187,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(122,99,187,.06) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+body::before{content:"";position:fixed;top:-280px;right:-190px;width:800px;height:650px;border-radius:50%;background:radial-gradient(ellipse,rgba(109,62,234,.12),transparent 65%);pointer-events:none}
+.shell{max-width:1280px;margin:0 auto;padding:28px 26px 34px;position:relative}
+.header{display:flex;justify-content:space-between;gap:20px;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:15px}.logo-icon{display:grid;place-items:center;width:52px;height:52px;background:var(--accent);color:#120d20;font-size:34px;font-weight:700;border-radius:14px;box-shadow:0 5px 35px var(--shadow)}
+small,.eyebrow,.panel-head span,.chips,.status,.metric span,footer{font-family:'DM Mono',monospace;letter-spacing:.08em}
+.logo small{font-size:10px;color:var(--muted)}h1{font-size:21px;margin:0;letter-spacing:.06em}h1 span{color:var(--accent)}
+.header-actions{display:flex;gap:14px;align-items:center}.status{font-size:11px;color:var(--accent2);white-space:nowrap}.status i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 15px var(--accent2);margin-right:6px}
+button{font:600 12px 'DM Mono',monospace;letter-spacing:.06em;padding:12px 17px;color:#130e20;background:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;transition:transform .18s,opacity .18s}
+button:hover{transform:translateY(-2px);opacity:.92}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+button.secondary,button.ghost{background:transparent;color:var(--text);border-color:var(--border)}button.ghost{padding:10px 13px}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:320px;padding:48px 18px 38px}
+.eyebrow{font-size:11px;color:var(--accent2)}
+.hero h2{font-size:clamp(44px,6vw,80px);font-weight:700;line-height:.98;letter-spacing:-.07em;margin:16px 0 24px}
+.hero h2 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:525px;color:var(--muted);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.chips span{font-size:9px;border:1px solid var(--border);border-radius:100px;padding:7px 10px;color:var(--muted)}
+.hero-dial{width:270px;height:270px;position:relative;flex-shrink:0;display:grid;place-items:center}
+.orbit{position:absolute;border:1px solid var(--border);border-radius:50%;width:100%;height:100%;animation:spin 28s linear infinite}
+.orbit::before{content:"";position:absolute;top:15%;left:13%;height:9px;width:9px;background:var(--accent);border-radius:50%;box-shadow:0 0 15px var(--accent)}
+.orbit-b{width:83%;height:83%;border-style:dashed;animation-direction:reverse;animation-duration:35s}
+.core{background:radial-gradient(circle,var(--surface2),var(--bg));box-shadow:0 0 80px var(--shadow);border:1px solid var(--accent);width:145px;height:145px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;font-weight:700;font-size:60px;line-height:1;color:var(--accent)}
+.core span{font:500 14px 'DM Mono',monospace;letter-spacing:.5em;margin:7px 0 0 8px;color:var(--accent2)}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes blink{50%{opacity:0}}.blink{animation:blink .9s step-end infinite}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 14px}
+.metric{min-width:0;padding:20px;background:rgba(19,22,37,.85);border:1px solid var(--border);border-radius:12px}
+.metric small{display:block;font-size:10px;color:var(--muted);margin-bottom:12px}
+.metric strong{display:block;font-size:clamp(25px,3vw,34px);letter-spacing:-.055em;color:var(--text)}
+.metric span{display:block;font-size:10px;color:var(--muted);margin-top:5px}
+.workspace{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{min-width:0;border:1px solid var(--border);border-radius:13px;padding:22px;background:linear-gradient(135deg,rgba(23,27,45,.97),rgba(12,15,25,.94))}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
+.panel h3{font-size:14px;letter-spacing:.06em;margin:0}.panel-head span{font-size:9px;color:var(--muted);white-space:nowrap}
+.terminal-output{background:#090b11;border:1px solid var(--border);padding:12px 16px;height:220px;overflow-y:auto;border-radius:8px;font:12px/1.7 'DM Mono',monospace;color:#8be7c9}
+.terminal-output p{margin:3px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.terminal-output .cmd{color:var(--accent)}.terminal-output .error{color:#ff8d9e}
+.terminal-input{display:flex;align-items:center;gap:8px;margin-top:13px;background:#090b11;border:1px solid var(--border);border-radius:8px;padding:7px}
+.terminal-input label{font:11px 'DM Mono',monospace;color:var(--accent2);white-space:nowrap}
+input,textarea{color:var(--text);background:#0b0d19;border:1px solid var(--border);border-radius:7px;padding:12px;font:13px 'DM Mono',monospace;min-width:0}
+.terminal-input input{flex:1;padding:8px 2px;border:0;background:transparent}
+.terminal-input button{padding:9px 11px}
+.inline-form{display:flex;gap:8px}.inline-form input{flex:1}.tasks{list-style:none;padding:0;display:grid;gap:8px;margin:20px 0 0}
+.tasks li{display:flex;align-items:center;gap:9px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px}
+.tasks li .task-text{flex:1;font-size:13px;overflow-wrap:anywhere}.tasks li.done .task-text{text-decoration:line-through;color:var(--muted)}
+.tasks input[type="checkbox"]{accent-color:var(--accent);width:17px;height:17px;cursor:pointer}.tasks button{padding:5px 8px;background:transparent;color:#ff8d9e;border-color:var(--border)}
+.muted{font-size:12px;color:var(--muted);line-height:1.6}.center{text-align:center}
+.focus-clock{text-align:center;font:600 70px 'DM Mono',monospace;letter-spacing:-.08em;color:var(--accent);margin:30px 0 8px}
+.button-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.idea-symbol{text-align:center;font-size:69px;color:var(--accent);text-shadow:0 0 35px var(--shadow)}
+.quest{text-align:center;font-size:18px;min-height:82px;font-weight:600}.mission-panel{text-align:center}.mission-panel .panel-head{text-align:left}
+.code-panel{grid-column:1 / -1}.code-panel textarea{width:100%;min-height:135px;resize:vertical;line-height:1.6}
+.code-panel .button-row{justify-content:flex-start}.code-output{margin:18px 0 0;background:#090b11;border:1px solid var(--border);border-radius:8px;min-height:95px;padding:15px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 'DM Mono',monospace;color:var(--accent2)}
+footer{display:flex;justify-content:space-between;gap:14px;padding-top:24px;color:var(--muted);font-size:10px}
+@media(max-width:900px){.hero-dial{width:195px;height:195px}.core{width:114px;height:114px;font-size:48px}.metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.shell{padding:18px 14px}.header,.header-actions{flex-wrap:wrap}.hero{padding:36px 0;min-height:auto}.hero-dial{display:none}.workspace{grid-template-columns:1fr}.code-panel{grid-column:auto}.hero h2{font-size:54px}.terminal-input{flex-wrap:wrap}.terminal-input label{width:100%}footer{flex-direction:column}.metric strong{font-size:28px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
